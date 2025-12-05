@@ -2,13 +2,23 @@
   "name": "aoc2025",
   "version": "1.0.0",
   "description": "Advent of Code 2025 Solutions",
-  "main": "index.js",
-  "type": "module",
+  "main": "dist/index.js",
   "scripts": {
-    "day01": "node src/day01.js",
-    "day02": "node src/day02.js"
+    "day01": "ts-node src/day01/day01.ts",
+    "day02": "ts-node src/day02/day02.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
   },
-  "keywords": ["advent-of-code", "aoc", "2025"],
+  "keywords": [
+    "advent-of-code",
+    "aoc",
+    "2025"
+  ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
 }
