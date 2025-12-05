@@ -5,7 +5,6 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node",
     "day01": "node src/day01.js",
     "day02": "node src/day02.js"
   },
