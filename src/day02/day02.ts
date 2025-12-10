@@ -1,6 +1,5 @@
 import {ID_RANGES} from './constants';
 
-
 function solveDay02() {
     let sumOfInvalidIds = 0;
     const arrayOfIdRanges = ID_RANGES
@@ -10,12 +9,19 @@ function solveDay02() {
     for (const [from, to] of arrayOfIdRanges) {
         for (let i = Number(from); i <= Number(to); i++) {
             const strId = String(i);
-            const middleIndex = Math.floor(strId.length / 2);
 
-            const firstHalf = strId.slice(0, middleIndex);
-            const secondHalf = strId.slice(middleIndex);
-            if (firstHalf === secondHalf) {
-                sumOfInvalidIds += i;
+            let str = '';
+            for (const char of strId) {
+                str += char;
+                const matchTimes = strId.split(str).length - 1;
+
+                const isAllNumbersSame = str.length === 1 && matchTimes === strId.length;
+                const isSequenceRepeat = str.length !== 1 && strId.length / str.length === matchTimes;
+
+                if (matchTimes > 1 && (isAllNumbersSame || isSequenceRepeat)) {
+                    sumOfInvalidIds += i;
+                    break;
+                }
             }
         }
     }
@@ -23,4 +29,7 @@ function solveDay02() {
     console.log('>>>sumOfInvalidIds', sumOfInvalidIds);
 }
 
+const start = performance.now();
 solveDay02();
+const end = performance.now();
+console.log(`Execution time: ${end - start} milliseconds`);
