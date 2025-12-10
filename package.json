@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "day01": "ts-node src/day01/day01.ts",
-    "day02": "ts-node src/day02/day02.ts",
+    "run": "node run.js",
     "build": "tsc",
     "start": "node dist/index.js"
   },
